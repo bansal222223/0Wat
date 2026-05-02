@@ -39,6 +39,29 @@ const Home = () => {
             </p>
           </div>
 
+          <div style={{ marginBottom: '3rem' }}>
+            <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Zero-Watermarking Workflow</h3>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, minWidth: '150px', textAlign: 'center', padding: '1.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🖼️</div>
+                <h4 style={{ fontSize: '0.875rem' }}>Original Image</h4>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>No modification</p>
+              </div>
+              <div style={{ color: 'var(--text-secondary)' }}>➜</div>
+              <div style={{ flex: 1, minWidth: '150px', textAlign: 'center', padding: '1.5rem', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🧠</div>
+                <h4 style={{ fontSize: '0.875rem' }}>Feature Extractor</h4>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>AI Deep Learning</p>
+              </div>
+              <div style={{ color: 'var(--text-secondary)' }}>➜</div>
+              <div style={{ flex: 1, minWidth: '150px', textAlign: 'center', padding: '1.5rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>💾</div>
+                <h4 style={{ fontSize: '0.875rem' }}>Secure Registry</h4>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>TTP Database</p>
+              </div>
+            </div>
+          </div>
+
           <div style={{ display: 'flex', gap: '1rem' }}>
             <button 
               className="btn btn-primary" 

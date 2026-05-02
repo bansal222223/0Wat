@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from . import models
 
-def create_image_record(db: Session, filename: str, master_share: str):
-    db_record = models.ImageRecord(filename=filename, master_share=master_share)
+def create_image_record(db: Session, filename: str, owner_id: str, master_share: str):
+    db_record = models.ImageRecord(filename=filename, owner_id=owner_id, master_share=master_share)
     db.add(db_record)
     db.commit()
     db.refresh(db_record)

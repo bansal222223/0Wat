@@ -6,6 +6,7 @@ const Register = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [secretKey, setSecretKey] = useState('');
+  const [ownerId, setOwnerId] = useState('');
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [result, setResult] = useState(null);
   const fileInputRef = useRef(null);
@@ -44,6 +45,7 @@ const Register = () => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('secret_key', secretKey);
+    formData.append('owner_id', ownerId);
 
     try {
       const response = await axios.post('http://localhost:8000/api/register', formData, {
@@ -133,6 +135,7 @@ const Register = () => {
                     setFile(null);
                     setPreview(null);
                     setSecretKey('');
+                    setOwnerId('');
                     setResult(null);
                   }}
                 >
@@ -175,6 +178,18 @@ const Register = () => {
               </div>
 
               <div className="form-group">
+                <label className="form-label">Owner Name / ID</label>
+                <input 
+                  type="text" 
+                  className="form-input" 
+                  placeholder="e.g. John Doe or Clinic-001"
+                  value={ownerId}
+                  onChange={(e) => setOwnerId(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
                 <label className="form-label">Secret Key</label>
                 <div style={{ position: 'relative' }}>
                   <Key size={20} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
@@ -197,7 +212,7 @@ const Register = () => {
                 type="submit" 
                 className="btn btn-primary" 
                 style={{ width: '100%', marginTop: '1rem' }}
-                disabled={!file || !secretKey || status === 'loading'}
+                disabled={!file || !secretKey || !ownerId || status === 'loading'}
               >
                 {status === 'loading' ? (
                   <>

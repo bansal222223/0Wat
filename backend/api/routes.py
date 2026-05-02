@@ -11,6 +11,7 @@ router = APIRouter()
 
 @router.post("/register")
 async def register_image(
+    owner_id: str = Form(...),
     secret_key: str = Form(...),
     file: UploadFile = File(...),
     db: Session = Depends(database.get_db)
@@ -33,7 +34,7 @@ async def register_image(
     master_share_str = crypto.binary_array_to_string(master_share_binary)
     
     # 5. Store in Database
-    record = crud.create_image_record(db=db, filename=file.filename, master_share=master_share_str)
+    record = crud.create_image_record(db=db, filename=file.filename, owner_id=owner_id, master_share=master_share_str)
     
     return {
         "status": "success", 
@@ -82,6 +83,7 @@ async def verify_image(
         "status": "success",
         "score": round(score, 4),
         "is_match": is_match,
+        "owner_id": record.owner_id if is_match else None,
         "message": "Ownership Confirmed" if is_match else "Verification Failed"
     }
 

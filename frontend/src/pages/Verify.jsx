@@ -76,7 +76,10 @@ const Verify = () => {
                     <CheckCircle size={32} />
                     Ownership Confirmed
                   </div>
-                  <p style={{ color: 'var(--success)' }}>The suspect image matches your registered asset.</p>
+                  <p style={{ color: 'var(--success)', fontSize: '1.25rem', fontWeight: 'bold' }}>
+                    Asset belongs to: {result.owner_id}
+                  </p>
+                  <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>The suspect image matches your registered asset.</p>
                 </div>
               ) : (
                 <div style={{ marginBottom: '2rem' }}>
