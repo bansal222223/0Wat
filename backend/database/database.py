@@ -2,7 +2,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./0wat.db"
+import os
+
+# Use /tmp for SQLite on Vercel since the filesystem is read-only
+if os.environ.get("VERCEL"):
+    SQLALCHEMY_DATABASE_URL = "sqlite:////tmp/0wat.db"
+else:
+    SQLALCHEMY_DATABASE_URL = "sqlite:///./0wat.db"
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
 engine = create_engine(

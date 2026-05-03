@@ -48,7 +48,7 @@ const Verify = () => {
     formData.append('image_id', imageId);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/verify', formData, {
+      const response = await axios.post('/api/verify', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setResult(response.data);

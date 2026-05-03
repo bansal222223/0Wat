@@ -48,7 +48,7 @@ const Register = () => {
     formData.append('owner_id', ownerId);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/register', formData, {
+      const response = await axios.post('/api/register', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setResult(response.data);
@@ -66,7 +66,7 @@ const Register = () => {
     formData.append('file', file);
     
     try {
-      const response = await axios.post('http://localhost:8000/api/add-watermark', formData, {
+      const response = await axios.post('/api/add-watermark', formData, {
         responseType: 'blob' // Important for handling binary data
       });
       
